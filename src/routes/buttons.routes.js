@@ -5,7 +5,7 @@ const router = Router()
 
 router.get('/',getButtons)
 router.get('/',getButton)
-router.post('/a',postButton)
+router.post('/',postButton)
 router.put('/',putButton)
 router.delete('/',deleteButton)
 
