@@ -5,7 +5,6 @@ export const getButtons = async (req, res) => {
     const pool = await getConnection()
     const result = await pool.request().query('SELECT * FROM list')
     const {recordset,rowsAffected} = result
-    console.log(result)
     res.json({
       message:'mensaje',
       recordset,
@@ -20,15 +19,21 @@ export const getButtons = async (req, res) => {
 }
 
 export const getButton = async (req, res) => {
+  const {id} = req.params
+  const pool = await getConnection()
+  const result =await pool.request()
+  .input("id", id)
+  .query('SELECT * FROM list WHERE id = @id')
+  const {recordset} = result
   res.json({
-    message: 'getButton',
+    message: `getButton`,
+    recordset
   })
 }
 
 export const postButton = async (req, res) => {
   try {
     const {count} = req.body
-    console.log(count)
     const pool = await getConnection()
     pool.request()
     .input("count", sql.Int, count)
@@ -44,13 +49,27 @@ export const postButton = async (req, res) => {
 }
 
 export const putButton = async (req, res) => {
+  const {count} = req.body
+  const {id} = req.params
+  const pool = await getConnection()
+  const result =await pool.request()
+  .input("id", id)
+  .input("count", sql.Int, count)
+  .query('UPDATE list SET count=@count WHERE id = @id')
+  const {recordset} = result
   res.json({
-    message: 'putButtons',
+    message: `editButton`,
+    recordset
   })
 }
 
 export const deleteButton = async (req, res) => {
+  const {id} = req.params
+  const pool = await getConnection()
+  await pool.request()
+  .input("id", id)
+  .query('DELETE FROM list WHERE id = @id')
   res.json({
-    message: 'deleteButtons',
+    message: `deleteButton id: ${id}`,
   })
 }

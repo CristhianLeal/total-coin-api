@@ -4,9 +4,9 @@ import {getButtons,getButton,postButton,putButton,deleteButton} from  '../contro
 const router = Router()
 
 router.get('/',getButtons)
-router.get('/',getButton)
+router.get('/:id',getButton)
 router.post('/',postButton)
-router.put('/',putButton)
-router.delete('/',deleteButton)
+router.put('/:id',putButton)
+router.delete('/:id',deleteButton)
 
 export default router
