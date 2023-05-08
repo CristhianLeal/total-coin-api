@@ -62,7 +62,6 @@ total-coin-front
     ├── controllers
     ├── database
     ├── routes
-    ├── config.js
     ├── server.js
 ├── .env
 ├── .gitignore
