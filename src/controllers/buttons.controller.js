@@ -1,4 +1,4 @@
-import  {getConnection,sql}  from '../database/conection.js'
+import  {getConnection,sql,createDb}  from '../database/conection.js'
 
 export const getButtons = async (req, res) => {
   try {
@@ -12,6 +12,10 @@ export const getButtons = async (req, res) => {
 
     })
   } catch (error) {
+    if(error.message==="Invalid object name 'list'."){
+      createDb()
+      return
+    }
     res.status(500).json({
       message:error.message,
     })
