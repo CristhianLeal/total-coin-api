@@ -37,6 +37,17 @@ git clone https://github.com/CristhianLeal/total-coin-api.git
 ```
 npm install 
 ```
+### Instalaciones adicionales y aclaraciones
+
+* Para poder deployar el proyecto es necesario tener instalado Microsoft SQL Server Manager, el mismo tiene que estar configurado para el tipo de autenticación sql server y windows autentication server
+* Se deberá crear un usuario y contraseña que tengan sql antetication y con rol sysadmin.
+
+* Una vez terminado esto se deberá loguar y conectar al servidor.
+
+* Será necesario tambien crear la base de datos y completar el .env de la forma que está en el ejemplo .env.development
+
+* Para el correcto funcionamiento del proyecto es necesario el Frontend y el Backend
+
 
 ### Scripts Disponibles
 
